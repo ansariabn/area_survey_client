@@ -1,5 +1,5 @@
 {
-  "name": "sbr-client",
+  "name": "area-survey-client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

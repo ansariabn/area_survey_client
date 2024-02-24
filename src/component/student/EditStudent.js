@@ -19,13 +19,15 @@ const EditStudent = () => {
 		firstName: "",
 		lastName: "",
 		email: "",
-		department: "",
+		address: "",
+		mobileNumber: "",
 	});
 	const {
 		firstName,
 		lastName,
 		email,
-		department,
+		address,
+		mobileNumber,
 	} = student;
 
 	useEffect(() => {
@@ -34,7 +36,7 @@ const EditStudent = () => {
 
 	const loadStudent = async () => {
 		const result = await axios.get(
-			`http://localhost:9192/students/student/${id}`
+			`http://localhost:9192/peoples/people/${id}`
 		);
 		setStudent(result.data);
 	};
@@ -48,10 +50,10 @@ const EditStudent = () => {
 	const updateStudent = async (e) => {
 		e.preventDefault();
 		await axios.put(
-			`http://localhost:9192/students/update/${id}`,
+			`http://localhost:9192/peoples/update/${id}`,
 			student
 		);
-		navigate("/view-students");
+		navigate("/view-peoples");
 	};
 
 	return (
@@ -112,16 +114,32 @@ const EditStudent = () => {
 				<div className="input-group mb-5">
 					<label
 						className="input-group-text"
-						htmlFor="department">
-						Department
+						htmlFor="address">
+						Address
 					</label>
 					<input
 						className="form-control col-sm-6"
 						type="text"
-						name="department"
-						id="department"
+						name="address"
+						id="address"
 						required
-						value={department}
+						value={address}
+						onChange={(e) => handleInputChange(e)}
+					/>
+				</div>
+				<div className="input-group mb-5">
+					<label
+						className="input-group-text"
+						htmlFor="mobileNumber">
+						Mobile Number
+					</label>
+					<input
+						className="form-control col-sm-6"
+						type="text"
+						name="mobileNumber"
+						id="mobileNumber"
+						required
+						value={mobileNumber}
 						onChange={(e) => handleInputChange(e)}
 					/>
 				</div>
@@ -137,7 +155,7 @@ const EditStudent = () => {
 
 					<div className="col-sm-2">
 						<Link
-							to={"/view-students"}
+							to={"/view-peoples"}
 							type="submit"
 							className="btn btn-outline-warning btn-lg">
 							Cancel

@@ -12,7 +12,8 @@ const StudentPofile = () => {
 		firstName: "",
 		lastName: "",
 		email: "",
-		department: "",
+		address: "",
+		mobileNumber: "",
 	});
 
 	useEffect(() => {
@@ -21,9 +22,10 @@ const StudentPofile = () => {
 
 	const loadStudent = async () => {
 		const result = await axios.get(
-			`http://localhost:9192/students/student/${id}`
+			`http://localhost:9192/peoples/people/${id}`
 		);
 		setStudent(result.data);
+		console.log(result.data);
 	};
 
 	return (
@@ -114,13 +116,27 @@ const StudentPofile = () => {
 								<div className="row">
 									<div className="col-sm-3">
 										<h5 className="mb-0">
-											Department
+											address
 										</h5>
 									</div>
 
 									<div className="col-sm-9">
 										<p className="text-muted mb-0">
-											{student.department}
+											{student.address}
+										</p>
+									</div>
+								</div>
+								<hr />
+								<div className="row">
+									<div className="col-sm-3">
+										<h5 className="mb-0">
+											Mobile Number
+										</h5>
+									</div>
+
+									<div className="col-sm-9">
+										<p className="text-muted mb-0">
+											{student.mobileNumber}
 										</p>
 									</div>
 								</div>

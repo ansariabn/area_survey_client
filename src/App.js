@@ -25,15 +25,17 @@ function App() {
 						element={<Home />}></Route>
 					<Route
 						exact
-						path="/view-students"
+						path="/view-peoples"
 						element={<StudentsView />}></Route>
 					<Route
 						exact
-						path="/add-students"
-						element={<AddStudent />}></Route>
+						path="/add-peoples"
+						element={<AddStudent />}>
+
+					</Route>
 					<Route
 						exact
-						path="/edit-student/:id"
+						path="/edit-people/:id"
 						element={<EditStudent />}></Route>
 					<Route
 						exact

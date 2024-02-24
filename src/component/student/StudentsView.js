@@ -21,7 +21,7 @@ const StudentsView = () => {
 
 	const loadStudents = async () => {
 		const result = await axios.get(
-			"http://localhost:9192/students",
+			"http://localhost:9192/peoples",
 			{
 				validateStatus: () => {
 					return true;
@@ -35,7 +35,7 @@ const StudentsView = () => {
 
 	const handleDelete = async (id) => {
 		await axios.delete(
-			`http://localhost:9192/students/delete/${id}`
+			`http://localhost:9192/peoples/delete/${id}`
 		);
 		loadStudents();
 	};
@@ -53,7 +53,8 @@ const StudentsView = () => {
 						<th>First Name</th>
 						<th>Last Name</th>
 						<th>Email</th>
-						<th>Depatment</th>
+						<th>Address</th>
+						<th>Mobile Number</th>
 						<th colSpan="3">Actions</th>
 					</tr>
 				</thead>
@@ -73,7 +74,8 @@ const StudentsView = () => {
 								<td>{student.firstName}</td>
 								<td>{student.lastName}</td>
 								<td>{student.email}</td>
-								<td>{student.department}</td>
+								<td>{student.address}</td>
+								<td>{student.mobileNumber}</td>
 								<td className="mx-2">
 									<Link
 										to={`/student-profile/${student.id}`}
@@ -83,7 +85,7 @@ const StudentsView = () => {
 								</td>
 								<td className="mx-2">
 									<Link
-										to={`/edit-student/${student.id}`}
+										to={`/edit-People/${student.id}`}
 										className="btn btn-warning">
 										<FaEdit />
 									</Link>

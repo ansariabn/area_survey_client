@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 const NavBar = () => {
 	return (
-		<nav className="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
-			<div className="container-fluid">
+		<nav className="navbar navbar-expand-lg bg-success mb-5 rounded">
+			<div className="container">
 				<Link className="navbar-brand" to={"/"}>
-					SBR Demo
+					Area Survey Details
 				</Link>
 				<button
 					className="navbar-toggler"
@@ -26,15 +26,15 @@ const NavBar = () => {
 							<Link
 								className="nav-link active"
 								aria-current="page"
-								to={"/view-students"}>
-								View All Student
+								to={"/view-peoples"}>
+								View All Peoples
 							</Link>
 						</li>
 						<li className="nav-item">
 							<Link
 								className="nav-link"
-								to={"/add-students"}>
-								Add new Students
+								to={"/add-peoples"}>
+								Add new People Details
 							</Link>
 						</li>
 					</ul>
